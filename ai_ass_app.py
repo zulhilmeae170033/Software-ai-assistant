@@ -1,7 +1,7 @@
 
 from pathlib import Path
-#from openai import OpenAI
-import openai
+from openai import OpenAI
+#import openai
 import os
 import streamlit as st
 #from dotenv import load_dotenv
@@ -35,7 +35,7 @@ client = OpenAI(
 # Get the API key from the environment
 #api_key = os.getenv("YOUR_SERPAPI_API_KEY")
 api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
-#api_key = api_key
+api_key = api_key
 
 # Function to generate AI response
 def generate_ai_response(user_input):
