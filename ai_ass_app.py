@@ -42,8 +42,8 @@ OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
 openai.api_key = OPENAI_API_KEY
 
 # Set your SerpApi API key
-api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
-api_key = api_key
+SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
+api_key = SERPAPI_KEY
 
 # Function to generate AI response
 def generate_ai_response(user_input):
