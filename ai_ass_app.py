@@ -21,12 +21,14 @@ st.markdown(
 #client = OpenAI()
 # Load environment variables
 load_dotenv()
-client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
+#client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # Set your SerpApi API key
 #api_key = "YOUR_SERPAPI_API_KEY"
 # Get the API key from the environment
-api_key = os.getenv("YOUR_SERPAPI_API_KEY")
+#api_key = os.getenv("YOUR_SERPAPI_API_KEY")
+api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
 
 # Function to generate AI response
 def generate_ai_response(user_input):
