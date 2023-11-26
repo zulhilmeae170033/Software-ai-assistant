@@ -1,7 +1,7 @@
 
 from pathlib import Path
-from openai import OpenAI
-#import openai
+#from openai import OpenAI
+import openai
 import os
 import streamlit as st
 #from dotenv import load_dotenv
@@ -25,15 +25,23 @@ st.markdown(
 #client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 #openai_api_key = st.secrets["OPENAI_API_KEY"]
 #openai.api_key = openai_api_key
-OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
-client = OpenAI(
-  api_key=OPENAI_API_KEY
-)
+#OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+#client = OpenAI(
+#  api_key=OPENAI_API_KEY
+#)
 
 # Set your SerpApi API key
 #api_key = "YOUR_SERPAPI_API_KEY"
 # Get the API key from the environment
 #api_key = os.getenv("YOUR_SERPAPI_API_KEY")
+#api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
+#api_key = api_key
+
+# Initialize OpenAI Client
+OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+openai.api_key = OPENAI_API_KEY
+
+# Set your SerpApi API key
 api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
 api_key = api_key
 
