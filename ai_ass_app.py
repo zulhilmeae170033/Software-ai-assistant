@@ -42,7 +42,7 @@ client = OpenAI(
 #openai.api_key = OPENAI_API_KEY
 
 # Set your SerpApi API key
-#SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
+SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
 #api_key = SERPAPI_KEY
 
 # Function to generate AI response
@@ -265,7 +265,7 @@ if st.button("Submit"):
         st.write(ai_response)
 
         # User input for search query
-        SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
+        
         params = {
             "q": user_input_software + " logo",  # Append " logo" to the search query
             "api_key": SERPAPI_KEY,
