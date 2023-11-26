@@ -1,6 +1,5 @@
-
-from pathlib import Path
 from openai import OpenAI
+from pathlib import Path
 #import openai
 import os
 import streamlit as st
