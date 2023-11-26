@@ -265,9 +265,10 @@ if st.button("Submit"):
         st.write(ai_response)
 
         # User input for search query
+        SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
         params = {
             "q": user_input_software + " logo",  # Append " logo" to the search query
-            "api_key": api_key,
+            "api_key": SERPAPI_KEY,
             "engine": "google_images",  # Specify Google Images as the search engine
             "num": 1,  # Number of results (in this case, only 1 logo result)
             # Add other parameters as needed
