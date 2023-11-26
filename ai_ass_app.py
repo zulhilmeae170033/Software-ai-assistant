@@ -1,4 +1,4 @@
-pip install openai
+
 from pathlib import Path
 from openai import OpenAI
 #import openai
