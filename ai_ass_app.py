@@ -1,6 +1,6 @@
-#from openai import OpenAI
+from openai import OpenAI
 from pathlib import Path
-import openai
+#import openai
 import os
 import streamlit as st
 #from dotenv import load_dotenv
