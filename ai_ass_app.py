@@ -43,11 +43,11 @@ api_key = SERPAPI_KEY
 
 # Function to generate AI response
 def generate_ai_response(user_input):
-    system_prompt = """
+    system_prompt = '''
     You are a software expert documentation.
     You'll take the description of the user.
     You will be precise on the user's software input.
-    """
+    '''
     return client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
