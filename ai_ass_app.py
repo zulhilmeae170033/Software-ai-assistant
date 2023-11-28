@@ -6,7 +6,7 @@ import streamlit as st
 #from dotenv import load_dotenv
 import requests
 from PIL import Image
-from serpapi import GoogleSearch
+
 
 st.title("Software Assistant App 🤖")
 # Add a description under the title
