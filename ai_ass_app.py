@@ -1,9 +1,9 @@
-from openai import OpenAI
+
 from pathlib import Path
-#import openai
+from openai import OpenAI
 import os
 import streamlit as st
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import requests
 from PIL import Image
 from serpapi import GoogleSearch
@@ -13,36 +13,20 @@ st.title("Software Assistant App 🤖")
 st.markdown(
     """
     Welcome to the **Ai Assistant** . This magical app is here to assist you with all your software-related quests. 
-    Whether you're debugging, learning, or seeking tutorials, our digital wizardry is at your service! 
+    Whether you're **_DEBUGGING_**, **_LEARNING_**, or seeking **_TUTORIALS_**, our digital wizardry is at your service! 
     Enter the realm of code and commands, and let the enchantment begin! ✨✨✨
     """
 )
 # Initialize OpenAI Client
 #client = OpenAI()
 # Load environment variables
-#load_dotenv()
-#client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
-#openai_api_key = st.secrets["OPENAI_API_KEY"]
-#openai.api_key = openai_api_key
-OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
-client = OpenAI(
-  api_key=OPENAI_API_KEY
-)
+load_dotenv()
+client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 # Set your SerpApi API key
 #api_key = "YOUR_SERPAPI_API_KEY"
 # Get the API key from the environment
-#api_key = os.getenv("YOUR_SERPAPI_API_KEY")
-#api_key = st.secrets["YOUR_SERPAPI_API_KEY"]
-#api_key = api_key
-
-# Initialize OpenAI Client
-#OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
-#openai.api_key = OPENAI_API_KEY
-
-# Set your SerpApi API key
-SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
-#api_key = SERPAPI_KEY
+api_key = os.getenv("YOUR_SERPAPI_API_KEY")
 
 # Function to generate AI response
 def generate_ai_response(user_input):
@@ -259,15 +243,11 @@ if st.button("Submit"):
         # Display logo
         #st.image(software_logo_url, caption=f"Logo for {user_input_software}", use_column_width=True)
 
-        # Display AI response
-        st.write("AI Response:")
-        st.write(ai_response)
 
         # User input for search query
-        
         params = {
             "q": user_input_software + " logo",  # Append " logo" to the search query
-            "api_key": SERPAPI_KEY,
+            "api_key": api_key,
             "engine": "google_images",  # Specify Google Images as the search engine
             "num": 1,  # Number of results (in this case, only 1 logo result)
             # Add other parameters as needed
@@ -287,6 +267,10 @@ if st.button("Submit"):
         else:
             st.write("No logo image found.")
 
+    # Display AI response
+        st.write("AI Response:")
+        st.write(ai_response)
+
 
 st.sidebar.title("Unlock the Functions🧮")
 
@@ -304,14 +288,18 @@ elif page == "Tutorial Mode":
     st.subheader('Tutorial Mode')
     user_input_tuto = st.text_input("Enter the problem:")
     if user_input_tuto:
+
         tuto_explaination = assistant_explainer(user_input_tuto, user_input_software) #ai_response
-        st.write(tuto_explaination)
 
         #Voice Explanation
         voice_output_path = 'test_speech.mp3'
         st.write("Generating voice explanation...")
         voice_explainer(tuto_explaination, voice_output_path)
         st.audio(voice_output_path, format="audio/mp3", start_time=0)
+
+        #tuto_explaination = assistant_explainer(user_input_tuto, user_input_software) #ai_response
+        st.write(tuto_explaination)
+
 
 elif page == "Learning Mode":
     st.subheader('Learning Mode')
@@ -362,7 +350,7 @@ elif page == "Learning Mode":
         st.text("Assistant: " + learn_response_prompt)
 
         params = {
-                "q": learn_response_prompt + 'youtube',
+                "q": learn_response_prompt,
                 "api_key": api_key,
                 "engine": "google",  # You can change the search engine if needed
                 "num": 3,  # Number of results per page
