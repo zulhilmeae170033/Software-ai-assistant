@@ -23,10 +23,8 @@ st.markdown(
 #load_dotenv()
 #client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+openai.api_key = openai_api_key
 
-client = OpenAI(
-  api_key=OPENAI_API_KEY
-)
 
 SERPAPI_KEY = st.secrets['YOUR_SERPAPI_API_KEY']
 api_key = SERPAPI_KEY
