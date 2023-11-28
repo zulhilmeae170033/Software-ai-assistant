@@ -8,14 +8,6 @@ import requests
 from PIL import Image
 from serpapi import GoogleSearch
 
-
-OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
-client = OpenAI(
-  api_key=OPENAI_API_KEY
-)
-
-SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
-
 st.title("Software Assistant App 🤖")
 # Add a description under the title
 st.markdown(
@@ -32,7 +24,10 @@ st.markdown(
 #client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 #openai_api_key = st.secrets["OPENAI_API_KEY"]
 #openai.api_key = openai_api_key
-
+OPENAI_API_KEY = st.secrets['OPENAI_API_KEY']
+client = OpenAI(
+  api_key=OPENAI_API_KEY
+)
 
 # Set your SerpApi API key
 #api_key = "YOUR_SERPAPI_API_KEY"
@@ -46,7 +41,7 @@ st.markdown(
 #openai.api_key = OPENAI_API_KEY
 
 # Set your SerpApi API key
-#SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
+SERPAPI_KEY = st.secrets["YOUR_SERPAPI_API_KEY"]
 #api_key = SERPAPI_KEY
 
 # Function to generate AI response
